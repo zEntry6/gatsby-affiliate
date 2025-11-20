@@ -306,7 +306,7 @@ function renderList() {
     card.innerHTML = `
       <span class="badge-corner">${p.badge ?? "Pick"}</span>
       <div class="media">
-        <img class="thumb" src="${p.image}" alt="${p.name} loading="lazy" decoding="async">
+        <img class="thumb" src="${p.image}" alt="${p.name}" loading="lazy" decoding="async">
       </div>
       <div class="content">
         <h3>${p.name}</h3>
