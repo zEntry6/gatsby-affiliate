@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Gatsby — Curated Deals & Honest Picks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Gatsby curates the web's best deals. Transparent picks, clean design, and quick links. We may earn a commission from qualifying purchases." />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Gatsby — Curated Deals & Honest Picks" />
+  <meta property="og:site_name" content="Gatsby" />
+  <meta property="og:description" content="Clean, fast, and trustworthy affiliate picks." />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="Assets/Gatsby Logo.svg" />
+
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#results">Skip to results</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#" aria-label="Gatsby home">
+        <span aria-hidden="true" class="logo-mark"></span>
+        <span class="logo-text">Gatsby</span>
+      </a>
+
+      <div class="header-actions">
+        <div class="search-inline">
+          <input id="searchInput" type="search" placeholder="Search products, tags, merchants…" autocomplete="off" aria-label="Search products" />
+        </div>
+
+        <!-- Mobile-only hamburger -->
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">
+          <iconify-icon icon="lucide:sun" width="22" height="22"></iconify-icon>
+        </button>
+
+
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>Find a great deal, fast.</h1>
+        <p>Gatsby curates affiliate picks with pragmatic details and no fluff. Filter, sort, and click through with confidence.</p>
+        <div class="hero-cta">
+          <a href="#results" class="btn btn-primary">Explore deals</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls">
+      <div class="container controls-inner">
+        <div class="chips" role="tablist" aria-label="Filter by category">
+          <!-- Category chips populated by script.js -->
+        </div>
+        <div class="control-right">
+          <label class="sr-only" for="sortSelect">Sort</label>
+          <select id="sortSelect" aria-label="Sort results">
+            <option value="featured">Featured</option>
+            <option value="rating">Rating</option>
+            <option value="price-asc">Price: Low → High</option>
+            <option value="price-desc">Price: High → Low</option>
+            <option value="merchant:vt">TikTok</option>
+            <option value="merchant:tokopedia">Tokopedia</option>
+            <option value="merchant:shopee">Shopee</option>
+
+          </select>
+          <span id="resultCount" class="muted">0 results</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="results" aria-live="polite" aria-busy="true">
+      <div id="grid" class="grid">
+        <!-- Skeletons for first paint -->
+        <article class="card skeleton"></article>
+        <article class="card skeleton"></article>
+        <article class="card skeleton"></article>
+        <article class="card skeleton"></article>
+        <article class="card skeleton"></article>
+        <article class="card skeleton"></article>
+        <article class="card skeleton"></article>
+        <article class="card skeleton"></article>
+      </div>
+      <div class="load-more-wrap">
+        <button id="loadMore" class="btn btn-ghost" hidden>Load more</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="muted">© <span id="year"></span> Gatsby. Curated deals, honest picks.</p>
+      <nav class="footer-links">
+        <a href="#" id="toTop">Back to top</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Mobile Hamburger Menu -->
+  <dialog id="menuDialog" class="menu-dialog" aria-labelledby="menuTitle">
+    <form method="dialog" class="dialog-head">
+      <h2 id="menuTitle">Menu</h2>
+      <button class="icon-btn" formmethod="dialog" value="cancel" aria-label="Close">
+        <iconify-icon icon="lucide:x" width="20" height="20"></iconify-icon>
+      </button>
+
+    </form>
+
+    <nav class="menu-list">
+      <button id="menuThemeToggle" class="menu-item" type="button">
+        <span id="menuThemeLabel">Switch to Dark</span>
+      </button>
+    </nav>
+  </dialog>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- JSON-LD -->
+  <script id="gatsbySchema" type="application/ld+json"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-storage-compat.js"></script>
+
+  <noscript>
+    <div class="noscript container">This site works best with JavaScript enabled.</div>
+  </noscript>
+</body>
+</html>
