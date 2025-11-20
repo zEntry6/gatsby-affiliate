@@ -374,4 +374,11 @@ dialog::backdrop {
 /* (Kalau sebelumnya Anda sempat menyembunyikan #menuBtn di desktop),
    Anda boleh hapus rule lama itu atau biarkan saja; yang penting mobile disembunyikan. */
 
+.logo { display: inline-flex; align-items: center; gap: .5rem; }
+.logo-img { height: 28px; width: auto; display: block; }
+
+@media (max-width: 720px){
+  .logo-img { height: 24px; }
+}
+
 
