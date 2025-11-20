@@ -61,7 +61,7 @@ button { cursor: pointer; }
 
 .logo-mark{
   width: 30px; height: 30px;
-  background: url("assets/Gatsby\ Logo\ IC.svg") center/contain no-repeat;
+  background: url("assets/gatsbylogoic.svg") center/contain no-repeat;
   display: inline-block;
 }
 
@@ -373,3 +373,4 @@ dialog::backdrop {
 
 /* (Kalau sebelumnya Anda sempat menyembunyikan #menuBtn di desktop),
    Anda boleh hapus rule lama itu atau biarkan saja; yang penting mobile disembunyikan. */
+
