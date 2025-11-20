@@ -11,7 +11,7 @@ const products = [
     rating: 4.8,
     reviews: 11400,
     badge: "68% OFF",
-    image: "DobujackLB.png",
+    image: "Assets/DobujackLB.png",
     tags: ["Fashion", "Jacket"],
     affiliateBaseUrl: "https://vt.tokopedia.com/t/ZSH3s6GFewsWy-px2OL/"
   },
@@ -25,7 +25,7 @@ const products = [
     rating: 4.7,
     reviews: 10000,
     badge: "4% OFF",
-    image: "JeansSB.jpeg",
+    image: "Assets/JeansSB.jpeg",
     tags: ["Fashion", "Jeans"],
     affiliateBaseUrl: "https://vt.tokopedia.com/t/ZSH3sMqyRVBFQ-PSjK0/"
   },
@@ -39,7 +39,7 @@ const products = [
     rating: 4.8,
     reviews: 56500,
     badge: "41% OFF",
-    image: "mybasic.webp",
+    image: "Assets/mybasic.webp",
     tags: ["Fashion", "T-Shirt"],
     affiliateBaseUrl: "https://vt.tokopedia.com/t/ZSH3sMnP8hnVe-il9eJ/"
   },
@@ -53,7 +53,7 @@ const products = [
     rating: 4.6,
     reviews: 717,
     badge: "80% OFF",
-    image: "vibest.webp",
+    image: "Assets/vibest.webp",
     tags: ["Fashion", "T-Shirt"],
     affiliateBaseUrl: "https://vt.tokopedia.com/t/ZSH3sMKfvfEke-AdgpU/"
   },
@@ -67,7 +67,7 @@ const products = [
     rating: 4.8,
     reviews: 1400,
     badge: "Hot",
-    image: "octarineba.webp",
+    image: "Assets/octarineba.webp",
     tags: ["Fragrance", "Long-Lasting"],
     affiliateBaseUrl: "https://vt.tokopedia.com/t/ZSH3srdHokxFa-N5O2J/"
   },
@@ -81,7 +81,7 @@ const products = [
     rating: 4.7,
     reviews: 12700,
     badge: "75% OFF",
-    image: "dnhlblue.jpeg",
+    image: "Assets/dnhlblue.jpeg",
     tags: ["Fragrance", "Long-Lasting"],
     affiliateBaseUrl: "https://vt.tokopedia.com/t/ZSH3sr2k1NKFr-luXht/"
   },
@@ -95,7 +95,7 @@ const products = [
     rating: 4.8,
     reviews: 104300,
     badge: "Over 49% off",
-    image: "sombong.webp",
+    image: "Assets/sombong.webp",
     tags: ["Face Wash"],
     affiliateBaseUrl: "https://vt.tokopedia.com/t/ZSH3srhMSy3yK-h9Mty/"
   },
@@ -109,7 +109,7 @@ const products = [
     rating: 4.8,
     reviews: 30900,
     badge: "27% OFF",
-    image: "lbd.webp",
+    image: "Assets/lbd.webp",
     tags: ["Fragrance", "Long-Lasting"],
     affiliateBaseUrl: "https://vt.tokopedia.com/t/ZSH3srUU3Km1E-H2W4G/"
   },
@@ -280,16 +280,6 @@ function paged(list) {
   return list.slice(0, end);
 }
 
-// ---- Gambar lokal dari folder assets/ ----
-const IMAGE_BASE = "assets/";   // folder tempat gambar Anda disimpan
-
-function resolveImage(p) {
-  const src = p.image || "";                 // p.image boleh berupa nama file atau path penuh
-  if (/^https?:\/\//i.test(src)) return src; // kalau URL eksternal, biarkan
-  if (src.startsWith("assets/")) return src; // kalau sudah diprefix assets/, biarkan
-  return IMAGE_BASE + src;                   // kalau hanya "nike.jpg" → "assets/nike.jpg"
-}
-
 /* --- Render cards --- */
 function renderList() {
   els.grid.innerHTML = "";
@@ -316,7 +306,7 @@ function renderList() {
     card.innerHTML = `
       <span class="badge-corner">${p.badge ?? "Pick"}</span>
       <div class="media">
-        <img class="thumb" src="${resolveImage(p)}" alt="${p.name}" loading="lazy" decoding="async">
+        <img class="thumb" src="${p.image}" alt="${p.name} loading="lazy" decoding="async">
       </div>
       <div class="content">
         <h3>${p.name}</h3>
